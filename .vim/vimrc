@@ -122,8 +122,9 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 
 set t_Co=256
 
-colorscheme default
-"colorscheme zenburn
+"colorscheme twilight
+colorscheme distinguished
+"colorscheme default
 
 set number
 set relativenumber
@@ -157,4 +158,4 @@ nnoremap <space> za
 
 set clipboard=unnamed           " allow access to system clipboard
 
-
+source ~/.vim/scripts/cyclecolor.vim
