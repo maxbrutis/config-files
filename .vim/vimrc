@@ -56,7 +56,7 @@ au BufNewFile,BufRead *.py   " PEP8 Python Indentation
 "EOF
 
 syntax on
-noswapfile
+set noswapfile
 set hidden
 
 " Show partial commands in the last line of the screen
