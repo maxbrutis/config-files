@@ -5,7 +5,7 @@ filetype off
 call plug#begin('~/.vim/plugged')
 
 " Declare the list of plugins.
-"Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-sensible'
 Plug 'vim-airline/vim-airline'
 Plug 'guns/xterm-color-table.vim'
 "Plug 'jnurmine/Zenburn'
