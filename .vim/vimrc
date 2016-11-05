@@ -5,10 +5,10 @@ filetype off
 call plug#begin('~/.vim/plugged')
 
 " Declare the list of plugins.
-Plug 'tpope/vim-sensible'
+"Plug 'tpope/vim-sensible'
 Plug 'vim-airline/vim-airline'
 Plug 'guns/xterm-color-table.vim'
-Plug 'jnurmine/Zenburn'
+"Plug 'jnurmine/Zenburn'
 Plug 'tmhedberg/SimpylFold'             " Python
 Plug 'vim-scripts/indentpython.vim'     " Python auto-indentation
 Plug 'Valloric/YouCompleteMe'           " Python auto-complete
@@ -28,11 +28,36 @@ call plug#end()
 let g:airline_powerline_fonts = 1
 let g:SimpylFold_docstring_preview=1    " see docstrings for folded code
 let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 let python_highlight_all=1
 let NERDTreeIgnore=['\.pyc$', '\~$']    " ignore files in NERDTree
 
-au BufNewFile,BufRead *.py   " PEP8 Python Indentation
+"------------------------------------------------------------------------------
+" KEY MAPPINGS
+"------------------------------------------------------------------------------
+" Map Y to act like D and C, i.e. yank until EOL
+map Y y$
+
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" Enable folding with spacebar
+nnoremap <space> za
+
+let mapleader = "-"
+
+" Split navigations
+" ALT-j move to the split below... etc.
+"nnoremap <C-H> <C-W><H>
+"nnoremap <C-J> <C-W><J>
+"nnoremap <C-K> <C-W><K>
+"nnoremap <C-L> <C-W><L>
+nmap <C-H> <C-W>h
+nmap <C-J> <C-W>j
+nmap <C-K> <C-W>k
+nmap <C-L> <C-W>l
+
+noremap <leader>ev :edit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
+autocmd BufNewFile,BufRead *.py   " PEP8 Python Indentation
   \ set tabstop=4 |
   \ set softtabstop=4 |
   \ set shiftwidth=4 |
@@ -43,7 +68,7 @@ au BufNewFile,BufRead *.py   " PEP8 Python Indentation
 
 " NOT WORKING ***
 " Flagging unecessary whitespace
-"au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+"autocmd BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 " Python with virtualenv support
 "py << EOF
@@ -100,25 +125,10 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 
-" Map Y to act like D and C, i.e. yank until EOL
-map Y y$
-
 " Highlight trailing whitespace
 " Cool! Applications > Accessories > Character Map
 " This one is from Common
 set list listchars=tab:\ \ ,trail:•
-
-let mapleader = "-"
-
-noremap <leader>ev :edit $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
-
-" Split navigations
-" Ctrl-j move to the split below... etc.
-"nnoremap <C-J> <C-W><C-J>
-"nnoremap <C-K> <C-W><C-K>
-"nnoremap <C-L> <C-W><C-L>
-"nnoremap <C-H> <C-W><C-H>
 
 set t_Co=256
 
@@ -153,9 +163,7 @@ set showmatch
 set foldmethod=indent
 set foldlevel=99
 
-" Enable folding with spacebar
-nnoremap <space> za
-
 set clipboard=unnamed           " allow access to system clipboard
+
 
 source ~/.vim/scripts/cyclecolor.vim
